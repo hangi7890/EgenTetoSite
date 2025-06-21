@@ -21,11 +21,53 @@ export function Footer() {
     );
   };
 
-  const handleInstagramShare = () => {
-    // 인스타그램은 웹에서 직접 공유 API가 없어서 클립보드에 링크 복사
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      alert('링크가 클립보드에 복사되었습니다! 인스타그램에서 붙여넣기 하세요.');
-    });
+  const handleInstagramShare = async () => {
+    // Web Share API가 지원되는 경우 (주로 모바일)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: '에겐-테토 성격 분석',
+          text: '나만의 성격 유형을 찾아보고 궁합을 확인해보세요!',
+          url: window.location.href,
+        });
+        return;
+      } catch (err) {
+        // 사용자가 공유를 취소한 경우 등
+      }
+    }
+    
+    // 모바일에서 인스타그램 앱이 설치되어 있다면 앱으로 연결 시도
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      try {
+        // 인스타그램 스토리에 링크 추가를 위한 URL 스킴
+        window.location.href = `instagram://story-camera`;
+        // 클립보드에도 복사
+        await navigator.clipboard.writeText(window.location.href);
+        setTimeout(() => {
+          alert('링크가 클립보드에 복사되었습니다! 인스타그램 스토리에 붙여넣기 하세요.');
+        }, 1000);
+      } catch (err) {
+        // 인스타그램 앱이 없는 경우 클립보드 복사
+        await navigator.clipboard.writeText(window.location.href);
+        alert('링크가 클립보드에 복사되었습니다! 인스타그램에서 붙여넣기 하세요.');
+      }
+    } else {
+      // 데스크톱에서는 클립보드 복사
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('링크가 클립보드에 복사되었습니다! 인스타그램에서 붙여넣기 하세요.');
+      } catch (err) {
+        // 클립보드 API를 지원하지 않는 경우
+        const textArea = document.createElement('textarea');
+        textArea.value = window.location.href;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('링크가 클립보드에 복사되었습니다! 인스타그램에서 붙여넣기 하세요.');
+      }
+    }
   };
 
   return (
