@@ -20,21 +20,21 @@ export function HeroSection() {
           <Button
             onClick={() => scrollToSection('personality-types')}
             size="lg"
-            className="bg-white text-primary hover:bg-neutral-100 shadow-lg transition-all duration-300"
+            className="bg-white text-primary dark:text-black hover:bg-neutral-100 shadow-lg transition-all duration-300"
           >
             {t('hero.btn.personality')}
           </Button>
           <Button
             onClick={() => scrollToSection('compatibility')}
             size="lg"
-            className="bg-white text-primary hover:bg-neutral-100 shadow-lg transition-all duration-300"
+            className="bg-white text-primary dark:text-black hover:bg-neutral-100 shadow-lg transition-all duration-300"
           >
             {t('hero.btn.compatibility')}
           </Button>
           <Button
             onClick={() => scrollToSection('dating-food-chain')}
             size="lg"
-            className="bg-white text-primary hover:bg-neutral-100 shadow-lg transition-all duration-300"
+            className="bg-white text-primary dark:text-black hover:bg-neutral-100 shadow-lg transition-all duration-300"
           >
             {t('hero.btn.dating')}
           </Button>
