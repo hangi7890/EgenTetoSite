@@ -5,13 +5,13 @@ export function DatingFoodChain() {
   const hierarchy = [
     {
       type: "테스토스테론 남",
-      color: "bg-blue-500",
+      color: "bg-red-500",
       textColor: "text-white",
       description: "강력한 남성성과 지배력"
     },
     {
       type: "테스토스테론 녀",
-      color: "bg-blue-400",
+      color: "bg-red-400",
       textColor: "text-white",
       description: "강인한 여성성과 독립성"
     },
