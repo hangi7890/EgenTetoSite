@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Heart, Handshake, User } from "lucide-react";
+import { CheckCircle, Heart, Handshake, UserCheck, Flower2, Flame } from "lucide-react";
 import type { CompatibilityAnalysis } from "@shared/schema";
 
 export function CompatibilitySection() {
@@ -82,8 +82,16 @@ export function CompatibilitySection() {
             >
               <div className="flex flex-col items-center gap-3">
                 <div className="flex gap-2">
-                  <User className="h-5 w-5" />
-                  <User className="h-5 w-5" />
+                  {compatibility.type1.includes('egen') ? (
+                    <Flower2 className="h-5 w-5" />
+                  ) : (
+                    <Flame className="h-5 w-5" />
+                  )}
+                  {compatibility.type2.includes('egen') ? (
+                    <Flower2 className="h-5 w-5" />
+                  ) : (
+                    <Flame className="h-5 w-5" />
+                  )}
                 </div>
                 <span className="font-semibold">
                   {getCompatibilityTitle(compatibility.type1, compatibility.type2)}

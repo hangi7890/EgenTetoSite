@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, Heart, CheckCircle, User, ChevronDown, ChevronUp, Plus, Minus } from "lucide-react";
+import { Flower2, Flame, CheckCircle, UserCheck, ChevronDown, ChevronUp, Plus, Minus } from "lucide-react";
 import type { PersonalityType } from "@shared/schema";
 
 export function PersonalitySection() {
@@ -41,9 +41,9 @@ export function PersonalitySection() {
   ) || [];
 
   const getIcon = (type: string) => {
-    if (type === 'egen') return <Brain className="text-white text-2xl" />;
-    if (type === 'teto') return <Heart className="text-white text-2xl" />;
-    return <User className="text-white" />;
+    if (type === 'egen' || type.includes('egen')) return <Flower2 className="text-white h-6 w-6" />;
+    if (type === 'teto' || type.includes('teto')) return <Flame className="text-white h-6 w-6" />;
+    return <UserCheck className="text-white h-6 w-6" />;
   };
 
   const getColorClass = (type: string) => {
