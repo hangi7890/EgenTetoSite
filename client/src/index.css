@@ -51,6 +51,11 @@
   --destructive-foreground: hsl(0, 0%, 98%);
   --ring: hsl(240, 4.9%, 83.9%);
   --radius: 0.5rem;
+  --neutral-50: hsl(240, 10%, 10%);
+  --neutral-100: hsl(240, 10%, 15%);
+  --neutral-600: hsl(215, 16%, 65%);
+  --neutral-700: hsl(215, 25%, 75%);
+  --neutral-800: hsl(215, 28%, 85%);
 }
 
 @layer base {
