@@ -18,30 +18,30 @@ export function Header() {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50 transition-colors">
+    <header className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <h1 className="text-xl font-bold text-primary dark:text-blue-400">{t('site.title')}</h1>
+            <h1 className="text-xl font-bold text-primary dark:text-primary">{t('site.title')}</h1>
           </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('personality-types')}
-              className="text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-blue-400 transition-colors"
+              className="text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors"
             >
               {t('nav.personality')}
             </button>
             <button 
               onClick={() => scrollToSection('compatibility')}
-              className="text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-blue-400 transition-colors"
+              className="text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors"
             >
               {t('nav.compatibility')}
             </button>
             <button 
               onClick={() => scrollToSection('dating-food-chain')}
-              className="text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-blue-400 transition-colors"
+              className="text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors"
             >
               {t('nav.dating')}
             </button>
@@ -50,7 +50,7 @@ export function Header() {
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value as any)}
-              className="bg-transparent text-neutral-600 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-600 rounded px-2 py-1 text-sm"
+              className="bg-white dark:bg-gray-800 text-neutral-600 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-600 rounded px-2 py-1 text-sm"
             >
               <option value="ko">한국어</option>
               <option value="en">English</option>
@@ -85,19 +85,19 @@ export function Header() {
           <div className="md:hidden border-t border-gray-200 dark:border-gray-600 py-2">
             <button 
               onClick={() => scrollToSection('personality-types')}
-              className="block w-full text-left px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-blue-400 transition-colors"
+              className="block w-full text-left px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors"
             >
               {t('nav.personality')}
             </button>
             <button 
               onClick={() => scrollToSection('compatibility')}
-              className="block w-full text-left px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-blue-400 transition-colors"
+              className="block w-full text-left px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors"
             >
               {t('nav.compatibility')}
             </button>
             <button 
               onClick={() => scrollToSection('dating-food-chain')}
-              className="block w-full text-left px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-blue-400 transition-colors"
+              className="block w-full text-left px-4 py-2 text-neutral-600 dark:text-neutral-300 hover:text-primary dark:hover:text-primary transition-colors"
             >
               {t('nav.dating')}
             </button>
@@ -106,7 +106,7 @@ export function Header() {
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value as any)}
-                className="w-full bg-transparent text-neutral-600 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-600 rounded px-2 py-1 text-sm"
+                className="w-full bg-white dark:bg-gray-800 text-neutral-600 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-600 rounded px-2 py-1 text-sm"
               >
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
