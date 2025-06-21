@@ -80,7 +80,7 @@ export function DatingFoodChain() {
                 <div className="space-y-6">
                   {relationships.map((rel, index) => (
                     <div key={index} className="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                      <div className="flex items-center justify-center gap-4 mb-2">
+                      <div className="flex items-center justify-between mb-2">
                         <span className="font-semibold text-gray-700">{rel.from}</span>
                         <ArrowUp className="text-pink-500 h-5 w-5 transform rotate-45" />
                         <span className="font-semibold text-gray-700">{rel.to}</span>
