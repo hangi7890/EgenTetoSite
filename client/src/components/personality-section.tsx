@@ -1,12 +1,23 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
-import { Brain, Heart, CheckCircle, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Brain, Heart, CheckCircle, User, ChevronDown, ChevronUp, Plus, Minus } from "lucide-react";
 import type { PersonalityType } from "@shared/schema";
 
 export function PersonalitySection() {
+  const [expandedTypes, setExpandedTypes] = useState<Record<number, boolean>>({});
+  
   const { data: personalityTypes, isLoading } = useQuery<PersonalityType[]>({
     queryKey: ["/api/personality-types"],
   });
+
+  const toggleExpanded = (typeId: number) => {
+    setExpandedTypes(prev => ({
+      ...prev,
+      [typeId]: !prev[typeId]
+    }));
+  };
 
   if (isLoading) {
     return (
@@ -73,13 +84,58 @@ export function PersonalitySection() {
                   </h3>
                   <p className="text-neutral-600">{type.description}</p>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-4 mb-6">
                   {type.characteristics.map((characteristic, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle className={`${type.type === 'egen' ? 'text-primary' : 'text-secondary'} mt-1 h-5 w-5`} />
                       <p>{characteristic}</p>
                     </div>
                   ))}
+                </div>
+                
+                {/* More Details Button */}
+                <div className="border-t pt-6">
+                  <Button
+                    onClick={() => toggleExpanded(type.id)}
+                    variant="outline"
+                    className="w-full"
+                  >
+                    {expandedTypes[type.id] ? (
+                      <>
+                        <ChevronUp className="h-4 w-4 mr-2" />
+                        접기
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="h-4 w-4 mr-2" />
+                        더보기
+                      </>
+                    )}
+                  </Button>
+                  
+                  {expandedTypes[type.id] && (
+                    <div className="mt-6 space-y-4">
+                      <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Plus className="h-5 w-5 text-green-600" />
+                          <h4 className="font-semibold text-green-800">장점</h4>
+                        </div>
+                        <p className="text-sm text-green-700 leading-relaxed">
+                          {type.advantages}
+                        </p>
+                      </div>
+                      
+                      <div className="p-4 bg-red-50 rounded-lg border border-red-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Minus className="h-5 w-5 text-red-600" />
+                          <h4 className="font-semibold text-red-800">단점</h4>
+                        </div>
+                        <p className="text-sm text-red-700 leading-relaxed">
+                          {type.disadvantages}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -99,11 +155,57 @@ export function PersonalitySection() {
                     {type.name}
                   </h4>
                 </div>
-                <ul className="space-y-2 text-sm text-neutral-700">
+                <ul className="space-y-2 text-sm text-neutral-700 mb-4">
                   {type.characteristics.map((characteristic, index) => (
                     <li key={index}>• {characteristic}</li>
                   ))}
                 </ul>
+                
+                {/* More Details Button for Detailed Types */}
+                <div className="border-t pt-4">
+                  <Button
+                    onClick={() => toggleExpanded(type.id)}
+                    variant="outline"
+                    size="sm"
+                    className="w-full"
+                  >
+                    {expandedTypes[type.id] ? (
+                      <>
+                        <ChevronUp className="h-3 w-3 mr-1" />
+                        접기
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="h-3 w-3 mr-1" />
+                        더보기
+                      </>
+                    )}
+                  </Button>
+                  
+                  {expandedTypes[type.id] && (
+                    <div className="mt-4 space-y-3">
+                      <div className="p-3 bg-green-50 rounded-lg border border-green-200">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Plus className="h-4 w-4 text-green-600" />
+                          <h5 className="font-semibold text-green-800 text-sm">장점</h5>
+                        </div>
+                        <p className="text-xs text-green-700 leading-relaxed">
+                          {type.advantages}
+                        </p>
+                      </div>
+                      
+                      <div className="p-3 bg-red-50 rounded-lg border border-red-200">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Minus className="h-4 w-4 text-red-600" />
+                          <h5 className="font-semibold text-red-800 text-sm">단점</h5>
+                        </div>
+                        <p className="text-xs text-red-700 leading-relaxed">
+                          {type.disadvantages}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))}

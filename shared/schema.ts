@@ -8,6 +8,8 @@ export const personalityTypes = pgTable("personality_types", {
   name: text("name").notNull(),
   description: text("description").notNull(),
   characteristics: text("characteristics").array().notNull(),
+  advantages: text("advantages"),
+  disadvantages: text("disadvantages"),
 });
 
 export const compatibilityAnalysis = pgTable("compatibility_analysis", {
