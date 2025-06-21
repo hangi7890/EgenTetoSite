@@ -17,21 +17,21 @@ export function HeroSection() {
           <Button
             onClick={() => scrollToSection('personality-types')}
             size="lg"
-            className="glassmorphism-button bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 hover:border-white/50 shadow-lg transition-all duration-300"
+            className="bg-white text-primary hover:bg-neutral-100 shadow-lg transition-all duration-300"
           >
             성격 유형 알아보기
           </Button>
           <Button
             onClick={() => scrollToSection('compatibility')}
             size="lg"
-            className="glassmorphism-button bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 hover:border-white/50 shadow-lg transition-all duration-300"
+            className="bg-white text-primary hover:bg-neutral-100 shadow-lg transition-all duration-300"
           >
             궁합 분석하기
           </Button>
           <Button
             onClick={() => scrollToSection('dating-food-chain')}
             size="lg"
-            className="glassmorphism-button bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/30 hover:border-white/50 shadow-lg transition-all duration-300"
+            className="bg-white text-primary hover:bg-neutral-100 shadow-lg transition-all duration-300"
           >
             연애 먹이사슬
           </Button>

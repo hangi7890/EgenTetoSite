@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Zap, CheckCircle, User, ChevronDown, ChevronUp, Plus, Minus } from "lucide-react";
+import { Heart, Zap, CheckCircle, User, UserCircle, ChevronDown, ChevronUp, Plus, Minus } from "lucide-react";
 import type { PersonalityType } from "@shared/schema";
 
 export function PersonalitySection() {
@@ -43,6 +43,8 @@ export function PersonalitySection() {
   const getIcon = (type: string) => {
     if (type === 'egen') return <Heart className="text-white h-6 w-6" />;
     if (type === 'teto') return <Zap className="text-white h-6 w-6" />;
+    if (type === 'egen-male' || type === 'teto-male') return <User className="text-white h-6 w-6" />;
+    if (type === 'egen-female' || type === 'teto-female') return <UserCircle className="text-white h-6 w-6" />;
     return <User className="text-white h-6 w-6" />;
   };
 
