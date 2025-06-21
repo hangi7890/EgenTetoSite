@@ -30,6 +30,14 @@ export function HeroSection() {
           >
             궁합 분석하기
           </Button>
+          <Button
+            onClick={() => scrollToSection('dating-food-chain')}
+            variant="outline"
+            size="lg"
+            className="border-2 border-white text-white hover:bg-white hover:text-primary"
+          >
+            연애 먹이사슬
+          </Button>
         </div>
       </div>
     </section>

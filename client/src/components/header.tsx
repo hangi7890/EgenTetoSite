@@ -35,6 +35,12 @@ export function Header() {
             >
               궁합 분석
             </button>
+            <button 
+              onClick={() => scrollToSection('dating-food-chain')}
+              className="text-neutral-600 hover:text-primary transition-colors"
+            >
+              연애 먹이사슬
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -63,6 +69,12 @@ export function Header() {
               className="block w-full text-left px-4 py-2 text-neutral-600 hover:text-primary transition-colors"
             >
               궁합 분석
+            </button>
+            <button 
+              onClick={() => scrollToSection('dating-food-chain')}
+              className="block w-full text-left px-4 py-2 text-neutral-600 hover:text-primary transition-colors"
+            >
+              연애 먹이사슬
             </button>
           </div>
         )}
