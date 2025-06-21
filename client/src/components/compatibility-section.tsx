@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Heart, Handshake, User } from "lucide-react";
+import { CheckCircle, Heart, Handshake, User, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { CompatibilityAnalysis } from "@shared/schema";
 
 export function CompatibilitySection() {
   const [selectedCompatibility, setSelectedCompatibility] = useState<CompatibilityAnalysis | null>(null);
+  const { t } = useLanguage();
 
   const { data: compatibilityData, isLoading } = useQuery<CompatibilityAnalysis[]>({
     queryKey: ["/api/compatibility"],
@@ -65,9 +67,9 @@ export function CompatibilitySection() {
     <section id="compatibility" className="py-20 bg-neutral-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">궁합 분석</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t('compatibility.title')}</h2>
           <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
-            각 성격 유형 간의 궁합을 친구 관계와 연인 관계로 나누어 분석해보세요.
+            {t('compatibility.subtitle')}
           </p>
         </div>
 
@@ -99,7 +101,7 @@ export function CompatibilitySection() {
             <Card className="shadow-lg dark:bg-gray-900">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-8 text-center text-gray-900 dark:text-white">
-                  {getCompatibilityTitle(selectedCompatibility.type1, selectedCompatibility.type2)} 궁합
+                  {getCompatibilityTitle(selectedCompatibility.type1, selectedCompatibility.type2)} {t('compatibility.title')}
                 </h3>
                 
                 <div className="grid md:grid-cols-2 gap-8">
@@ -108,7 +110,7 @@ export function CompatibilitySection() {
                     <CardContent className="p-6">
                       <div className="flex items-center gap-3 mb-4">
                         <Handshake className="text-accent text-xl h-6 w-6" />
-                        <h4 className="text-xl font-bold text-accent">친구 관계</h4>
+                        <h4 className="text-xl font-bold text-accent">{t('friendship')}</h4>
                       </div>
                       <div className="space-y-3">
                         {selectedCompatibility.friendshipTraits.map((trait, index) => (
@@ -126,7 +128,7 @@ export function CompatibilitySection() {
                     <CardContent className="p-6">
                       <div className="flex items-center gap-3 mb-4">
                         <Heart className="text-red-500 text-xl h-6 w-6" />
-                        <h4 className="text-xl font-bold text-red-500">연인 관계</h4>
+                        <h4 className="text-xl font-bold text-red-500">{t('romance')}</h4>
                       </div>
                       <div className="space-y-3">
                         {selectedCompatibility.romanceTraits.map((trait, index) => (

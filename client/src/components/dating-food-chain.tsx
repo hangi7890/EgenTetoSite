@@ -1,7 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function DatingFoodChain() {
+  const { t } = useLanguage();
   const hierarchy = [
     {
       type: "테스토스테론 남",
@@ -40,11 +42,11 @@ export function DatingFoodChain() {
     <section id="dating-food-chain" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">연애 먹이사슬</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">{t('dating.title')}</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            호르몬 기반 성격 유형에 따른 연애 역학 관계를 분석해보세요.
+            {t('dating.subtitle')}
           </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">출처: 수성인기 블로그</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('dating.source')}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -52,7 +54,7 @@ export function DatingFoodChain() {
           <div className="order-2 lg:order-1">
             <Card className="shadow-xl border-2 border-purple-200 dark:border-purple-700 dark:bg-gray-800">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-6 text-center text-gray-800 dark:text-white">연애 역학 구조</h3>
+                <h3 className="text-xl font-bold mb-6 text-center text-gray-800 dark:text-white">{t('dating.structure')}</h3>
                 <div className="space-y-4">
                   {hierarchy.map((level, index) => (
                     <div key={index} className="relative">
@@ -76,7 +78,7 @@ export function DatingFoodChain() {
           <div className="order-1 lg:order-2">
             <Card className="shadow-xl border-2 border-pink-200 dark:border-pink-700 dark:bg-gray-800">
               <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-6 text-center text-gray-800 dark:text-white">끌림의 방향</h3>
+                <h3 className="text-xl font-bold mb-6 text-center text-gray-800 dark:text-white">{t('dating.attraction')}</h3>
                 <div className="space-y-6">
                   {relationships.map((rel, index) => (
                     <div key={index} className="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md border border-gray-200 dark:border-gray-600">
@@ -91,7 +93,7 @@ export function DatingFoodChain() {
                 </div>
                 
                 <div className="mt-8 p-4 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                  <h4 className="font-bold text-purple-800 dark:text-purple-300 mb-2">핵심 원리</h4>
+                  <h4 className="font-bold text-purple-800 dark:text-purple-300 mb-2">{t('dating.principle')}</h4>
                   <ul className="text-sm text-purple-700 dark:text-purple-200 space-y-1">
                     <li>• 호르몬 특성에 따른 자연스러운 끌림</li>
                     <li>• 상반된 특성이 서로를 보완</li>
@@ -108,11 +110,9 @@ export function DatingFoodChain() {
           <Card className="bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 border-2 border-purple-300 dark:border-purple-600">
             <CardContent className="p-6">
               <div className="text-center">
-                <h4 className="text-lg font-bold text-purple-800 dark:text-purple-300 mb-3">연애 먹이사슬의 이해</h4>
+                <h4 className="text-lg font-bold text-purple-800 dark:text-purple-300 mb-3">{t('dating.understanding')}</h4>
                 <p className="text-purple-700 dark:text-purple-200 text-sm leading-relaxed max-w-4xl mx-auto">
-                  이 이론은 호르몬(테스토스테론/에스트로겐)이 성격과 연애 성향에 미치는 영향을 바탕으로 합니다. 
-                  각 유형은 서로 다른 매력 포인트를 가지며, 자연스러운 끌림의 방향성이 존재한다고 봅니다. 
-                  하지만 이는 하나의 관점일 뿐이며, 실제 연애에서는 개인의 성격과 가치관이 더 중요할 수 있습니다.
+                  {t('dating.description')}
                 </p>
               </div>
             </CardContent>

@@ -26,13 +26,20 @@ const translations = {
     "dating.title": "연애 먹이사슬",
     "dating.subtitle": "호르몬 기반 성격 유형에 따른 연애 역학 관계를 분석해보세요.",
     "dating.source": "출처: 수성인기 블로그",
+    "dating.structure": "연애 역학 구조",
+    "dating.attraction": "끌림의 방향",
+    "dating.principle": "핵심 원리",
+    "dating.understanding": "연애 먹이사슬의 이해",
+    "dating.description": "이 이론은 호르몬(테스토스테론/에스트로겐)이 성격과 연애 성향에 미치는 영향을 바탕으로 합니다. 각 유형은 서로 다른 매력 포인트를 가지며, 자연스러운 끌림의 방향성이 존재한다고 봅니다. 하지만 이는 하나의 관점일 뿐이며, 실제 연애에서는 개인의 성격과 가치관이 더 중요할 수 있습니다.",
     "more": "더보기",
     "close": "접기",
     "advantages": "장점",
     "disadvantages": "단점",
     "friendship": "친구 관계",
     "romance": "연인 관계",
-    "close.btn": "닫기"
+    "close.btn": "닫기",
+    "footer.description": "성격 유형을 이해하고 더 나은 관계를 만들어가세요",
+    "footer.reference": "참고: 나무위키 테토-에겐 성격 유형"
   },
   en: {
     "site.title": "Egen-Teto Personality Analysis",
@@ -51,13 +58,20 @@ const translations = {
     "dating.title": "Dating Hierarchy",
     "dating.subtitle": "Analyze romantic dynamics based on hormone-based personality types.",
     "dating.source": "Source: Suseong Popular Blog",
+    "dating.structure": "Dating Dynamic Structure",
+    "dating.attraction": "Direction of Attraction",
+    "dating.principle": "Core Principles",
+    "dating.understanding": "Understanding Dating Hierarchy",
+    "dating.description": "This theory is based on the influence of hormones (testosterone/estrogen) on personality and romantic tendencies. Each type has different attraction points, and there is believed to be a natural direction of attraction. However, this is just one perspective, and in actual relationships, individual personality and values may be more important.",
     "more": "More",
     "close": "Less",
     "advantages": "Advantages",
     "disadvantages": "Disadvantages",
     "friendship": "Friendship",
     "romance": "Romance",
-    "close.btn": "Close"
+    "close.btn": "Close",
+    "footer.description": "Understand personality types and build better relationships",
+    "footer.reference": "Reference: Namuwiki Teto-Egen Personality Types"
   },
   zh: {
     "site.title": "Egen-Teto 性格分析",
@@ -76,13 +90,20 @@ const translations = {
     "dating.title": "恋爱食物链",
     "dating.subtitle": "基于荷尔蒙性格类型分析恋爱动态关系。",
     "dating.source": "来源：水星人气博客",
+    "dating.structure": "恋爱动态结构",
+    "dating.attraction": "吸引方向",
+    "dating.principle": "核心原理",
+    "dating.understanding": "恋爱食物链的理解",
+    "dating.description": "该理论基于荷尔蒙（睾酮/雌激素）对性格和恋爱倾向的影响。每种类型都有不同的吸引点，被认为存在自然的吸引方向。但这只是一种观点，在实际恋爱中，个人性格和价值观可能更重要。",
     "more": "更多",
     "close": "收起",
     "advantages": "优点",
     "disadvantages": "缺点",
     "friendship": "友谊关系",
     "romance": "恋爱关系",
-    "close.btn": "关闭"
+    "close.btn": "关闭",
+    "footer.description": "了解性格类型，建立更好的关系",
+    "footer.reference": "参考：娜木维基 Teto-Egen 性格类型"
   }
 };
 
