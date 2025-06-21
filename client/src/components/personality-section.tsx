@@ -43,8 +43,6 @@ export function PersonalitySection() {
   const getIcon = (type: string) => {
     if (type === 'egen') return <Heart className="text-white h-6 w-6" />;
     if (type === 'teto') return <Zap className="text-white h-6 w-6" />;
-    if (type === 'egen-male' || type === 'teto-male') return <User className="text-white h-6 w-6" />;
-    if (type === 'egen-female' || type === 'teto-female') return <UserCircle className="text-white h-6 w-6" />;
     return <User className="text-white h-6 w-6" />;
   };
 
