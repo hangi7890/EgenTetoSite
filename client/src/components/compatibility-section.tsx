@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Heart, Handshake, User, X } from "lucide-react";
+import { CheckCircle, Heart, Handshake, User } from "lucide-react";
 import type { CompatibilityAnalysis } from "@shared/schema";
 
 export function CompatibilitySection() {
@@ -146,7 +146,6 @@ export function CompatibilitySection() {
                     variant="secondary"
                     className="bg-neutral-600 text-white hover:bg-neutral-700"
                   >
-                    <X className="h-4 w-4 mr-2" />
                     닫기
                   </Button>
                 </div>
