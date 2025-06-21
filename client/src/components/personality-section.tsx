@@ -3,12 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Zap, CheckCircle, User, UserCircle, ChevronDown, ChevronUp, Plus, Minus } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import type { PersonalityType } from "@shared/schema";
 
 export function PersonalitySection() {
   const [expandedTypes, setExpandedTypes] = useState<Record<number, boolean>>({});
-  const { t } = useLanguage();
   
   const { data: personalityTypes, isLoading } = useQuery<PersonalityType[]>({
     queryKey: ["/api/personality-types"],
@@ -23,12 +21,12 @@ export function PersonalitySection() {
 
   if (isLoading) {
     return (
-      <section id="personality-types" className="py-20 bg-white dark:bg-gray-900">
+      <section id="personality-types" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-64 mx-auto mb-4"></div>
-              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-96 mx-auto"></div>
+              <div className="h-8 bg-gray-200 rounded w-64 mx-auto mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded w-96 mx-auto"></div>
             </div>
           </div>
         </div>
@@ -63,19 +61,19 @@ export function PersonalitySection() {
   };
 
   return (
-    <section id="personality-types" className="py-20 bg-white dark:bg-gray-900">
+    <section id="personality-types" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t('personality.title')}</h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
-            {t('personality.subtitle')}
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">에겐-테토 성격 유형</h2>
+          <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+            에겐과 테토는 사람의 성격을 분류하는 독특한 방식으로, 각각의 특성과 행동 패턴을 이해할 수 있습니다.
           </p>
         </div>
 
         {/* Main Types */}
         <div className="grid md:grid-cols-2 gap-12 mb-20">
           {mainTypes.map((type) => (
-            <Card key={type.id} className="bg-neutral-50 dark:bg-gray-800 shadow-lg">
+            <Card key={type.id} className="bg-neutral-50 shadow-lg">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
                   <div className={`w-16 h-16 ${getBgColorClass(type.type)} rounded-full flex items-center justify-center mx-auto mb-4`}>
@@ -105,34 +103,34 @@ export function PersonalitySection() {
                     {expandedTypes[type.id] ? (
                       <>
                         <ChevronUp className="h-4 w-4 mr-2" />
-                        {t('close')}
+                        접기
                       </>
                     ) : (
                       <>
                         <ChevronDown className="h-4 w-4 mr-2" />
-                        {t('more')}
+                        더보기
                       </>
                     )}
                   </Button>
                   
                   {expandedTypes[type.id] && (
                     <div className="mt-6 space-y-4">
-                      <div className="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg border border-green-200 dark:border-green-700">
+                      <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                         <div className="flex items-center gap-2 mb-3">
-                          <Plus className="h-5 w-5 text-green-600 dark:text-green-400" />
-                          <h4 className="font-semibold text-green-800 dark:text-green-300">{t('advantages')}</h4>
+                          <Plus className="h-5 w-5 text-green-600" />
+                          <h4 className="font-semibold text-green-800">장점</h4>
                         </div>
-                        <p className="text-sm text-green-700 dark:text-green-200 leading-relaxed">
+                        <p className="text-sm text-green-700 leading-relaxed">
                           {type.advantages}
                         </p>
                       </div>
                       
-                      <div className="p-4 bg-red-50 dark:bg-red-900/30 rounded-lg border border-red-200 dark:border-red-700">
+                      <div className="p-4 bg-red-50 rounded-lg border border-red-200">
                         <div className="flex items-center gap-2 mb-3">
-                          <Minus className="h-5 w-5 text-red-600 dark:text-red-400" />
-                          <h4 className="font-semibold text-red-800 dark:text-red-300">{t('disadvantages')}</h4>
+                          <Minus className="h-5 w-5 text-red-600" />
+                          <h4 className="font-semibold text-red-800">단점</h4>
                         </div>
-                        <p className="text-sm text-red-700 dark:text-red-200 leading-relaxed">
+                        <p className="text-sm text-red-700 leading-relaxed">
                           {type.disadvantages}
                         </p>
                       </div>
